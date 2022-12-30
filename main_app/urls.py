@@ -24,6 +24,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('villains/', views.villains_index, name='index'),
     path('villains/<int:villain_id>', views.villains_detail, name='detail'),
+    path('villains/<int:villain_id>/add_surveillance/', views.add_surveillance, name='add_surveillance'),
     path('villains/create/', views.VillainCreate.as_view(), name='villains_create'),
     path('villains/<int:pk>/update/', views.VillainUpdate.as_view(), name='villains_update'),
     path('villains/<int:pk>/delete/', views.VillainDelete.as_view(), name='villains_delete'),

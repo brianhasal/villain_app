@@ -4,4 +4,4 @@ from .models import Surveillance
 class SurveillanceForm(ModelForm):
   class Meta:
     model = Surveillance
-    fields = ['date', 's_window']
+    fields = ['date', 'surveillance_Window']

@@ -3,7 +3,6 @@
 {% block content %}
 
   <h1>Villain Details</h1>
-
   <div class="row">
     <div class="col s6">
       <div class="card">
@@ -25,7 +24,7 @@
     </div>
 
     <div class="col s6">
-      <form action="" method="post">
+      <form action="{% url 'add_surveillance' villain.id %}" method="post">
         {% csrf_token %}
         {{ surveillance_form }}
         <div>
@@ -43,7 +42,7 @@
           {% for window in villain.surveillance_set.all %}
             <tr>
               <td>{{window.date}}</td>
-              <td>{{window.s_window}}</td>
+              <td>{{window.get_surveillance_Window_display}}</td>
             </tr>
           {% endfor%}
         </tbody>
@@ -54,7 +53,7 @@
 
   <script>
     let dateEl = document.getElementById('id_date');
-    let selectEl = document.getElementById('id_s_window')
+    let selectEl = document.getElementById('id_swindow');
     M.Datepicker.init(dateEl, {
       format: 'yyyy-mm-dd',
       defaultDate: new Date(),

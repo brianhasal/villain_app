@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-S_WINDOWS = (
+SWINDOWS = (
   ('M', 'Morning'),
   ('A', 'Afternoon'),
   ('E', 'Evening'),
@@ -25,16 +25,16 @@ class Villain(models.Model):
 
 class Surveillance(models.Model):
   date = models.DateField('Surveillance Date')
-  s_window = models.CharField(
+  surveillance_Window = models.CharField(
     max_length=1,
-    choices=S_WINDOWS,
-    default=S_WINDOWS[0][0]
+    choices=SWINDOWS,
+    default=SWINDOWS[0][0]
   )
 
   villain = models.ForeignKey(Villain, on_delete=models.CASCADE)
 
   def __str__(self):
-    return f"{self.get_s_window_display()} on {self.date}"
+    return f"{self.get_surveillance_Window_display()} on {self.date}"
 
 
 

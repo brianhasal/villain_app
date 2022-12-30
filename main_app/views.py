@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Villain
@@ -25,6 +25,16 @@ def villains_detail(request, villain_id):
       'surveillance_form': surveillance_form
     }
   )
+
+def add_surveillance(request, villain_id):
+  form = SurveillanceForm(request.POST)
+  if form.is_valid():
+    new_surveillance = form.save(commit=False)
+    new_surveillance.villain_id = villain_id
+    new_surveillance.save()
+  return redirect('detail', villain_id=villain_id)
+
+
 
 class VillainCreate(CreateView):
   model = Villain
