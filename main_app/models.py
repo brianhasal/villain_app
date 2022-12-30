@@ -24,7 +24,7 @@ class Villain(models.Model):
     return reverse('detail', kwargs={ 'villain_id': self.id })
 
 class Surveillance(models.Model):
-  date = models.DateField('Surveillance Date: ')
+  date = models.DateField('Surveillance Date')
   s_window = models.CharField(
     max_length=1,
     choices=S_WINDOWS,

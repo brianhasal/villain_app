@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Villain
+from .forms import SurveillanceForm
 
 # Create your views here.
 
@@ -17,7 +18,13 @@ def villains_index(request):
 
 def villains_detail(request, villain_id):
   villain = Villain.objects.get(id=villain_id)
-  return render(request, 'villains/detail.html', { 'villain': villain })
+  surveillance_form = SurveillanceForm()
+  return render(request, 'villains/detail.html', 
+    { 
+      'villain': villain,
+      'surveillance_form': surveillance_form
+    }
+  )
 
 class VillainCreate(CreateView):
   model = Villain
