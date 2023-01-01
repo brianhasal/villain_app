@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 SWINDOWS = (
   ('M', 'Morning'),
@@ -23,6 +24,9 @@ class Villain(models.Model):
   def get_absolute_url(self):
     return reverse('detail', kwargs={ 'villain_id': self.id })
 
+  def views_for_today(self):
+    return self.surveillance_set.filter(date=date.today()).count() >= len(SWINDOWS)
+
 class Surveillance(models.Model):
   date = models.DateField('Surveillance Date')
   surveillance_Window = models.CharField(
@@ -35,6 +39,8 @@ class Surveillance(models.Model):
 
   def __str__(self):
     return f"{self.get_surveillance_Window_display()} on {self.date}"
+
+  
 
 
 

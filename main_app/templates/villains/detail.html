@@ -31,6 +31,12 @@
           <input type="submit" class="btn" value="Add Window" >
         </div>
       </form>
+      <br>
+      {% if villain.views_for_today %}
+        <div class="card-panel teal-text center-align">{{villain.name}} has been identified for today</div>
+      {% else %}
+        <div class="card-panel red-text center-align">{{villain.name}} might be escaped</div>
+      {% endif %}
       <table class="striped">
         <thead>
           <tr>
@@ -53,13 +59,13 @@
 
   <script>
     let dateEl = document.getElementById('id_date');
-    let selectEl = document.getElementById('id_swindow');
     M.Datepicker.init(dateEl, {
       format: 'yyyy-mm-dd',
       defaultDate: new Date(),
       setDefaultDate: true,
       autoClose: true
     });
+    let selectEl = document.getElementById('id_surveillance_Window');
     M.FormSelect.init(selectEl);
 
   </script>
