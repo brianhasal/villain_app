@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
-from .models import Villain
+from .models import Villain, Henchmen
 from .forms import SurveillanceForm
 
 # Create your views here.
@@ -47,3 +49,34 @@ class VillainUpdate(UpdateView):
 class VillainDelete(DeleteView):
   model = Villain
   success_url = '/villains/'
+
+
+class HenchmenList(ListView):
+  model = Henchmen
+
+class HenchmenDetail(DetailView):
+  model = Henchmen
+
+class HenchmenCreate(CreateView):
+  model = Henchmen
+  fields = ['name', 'adjective']
+  success_url = '/henchmen/'
+
+class HenchmenUpdate(UpdateView):
+  model = Henchmen
+  fields = ['name', 'adjective']
+  success_url = '/henchmen/'
+
+
+class HenchmenDelete(DeleteView):
+  model = Henchmen
+  success_url = '/henchmen/'
+
+
+
+
+
+
+
+
+

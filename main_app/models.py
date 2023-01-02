@@ -42,7 +42,12 @@ class Surveillance(models.Model):
 
   
 
-
+class Henchmen(models.Model):
+  name = models.CharField(max_length=50)
+  adjective = models.CharField(max_length=20)
+  
+  def __str__(self):
+    return f"The {{ self.adjective }} {{ self.name }}"
 
 
 

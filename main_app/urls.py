@@ -28,5 +28,10 @@ urlpatterns = [
     path('villains/create/', views.VillainCreate.as_view(), name='villains_create'),
     path('villains/<int:pk>/update/', views.VillainUpdate.as_view(), name='villains_update'),
     path('villains/<int:pk>/delete/', views.VillainDelete.as_view(), name='villains_delete'),
+    path('henchmen/', views.HenchmenList.as_view(), name='henchmen_index'),
+    path('henchmen/<int:pk>/', views.HenchmenDetail.as_view(), name='henchmen_detail'),
+    path('henchmen/<int:pk>/update/', views.HenchmenUpdate.as_view(), name='henchmen_update'),
+    path('henchmen/<int:pk>/delete/', views.HenchmenDelete.as_view(), name='henchmen_delete'),
+    path('henchmen/create/', views.HenchmenCreate.as_view(), name='henchmen_create'),
 
 ]
