@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if object_list.count == 0 %}
+  <h3 class='red-text'>There are no gangs</h3>
+  <a href='{% url 'gangs_create' %}'>Add a gang</a>
+{% else %}
+  {% for gang in object_list %}
+  <div class='card'>
+    <a href='{% url 'gangs_detail' gang.id %}'>
+      <div class='card-content'>
+        <span class='card-title'>{{gang.name}}</span>
+      </div>  
+    </a>
+
+
+  </div>
+  {% endfor %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

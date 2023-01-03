@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>Gang Details</h1>
+  <div class="row">
+    <div class="col s6">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">The {{ gang.adjective }} {{ gang.name }}</span>
+        </div>
+        <div class="card-action">
+          <a href="{% url 'gangs_update' gang.id %}">Edit</a>
+          <a href="{% url 'gangs_delete' gang.id %}">Delete</a>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} <div class="col s6">
+      <form action="{% url 'gangs_create' gang.id %}" method="post">
+        {% csrf_token %}
+        {{ gang_form }}
+        <div>
+          <input type="submit" class="btn" value="Add Window" >
+        </div>
+      </form>     
+    </div>
+  </div> {% endcomment %}
+
+{% endblock %}

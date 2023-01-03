@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 from .models import Villain, Gang
-from .forms import SurveillanceForm
+from .forms import SurveillanceForm, GangForm
 
 # Create your views here.
 
@@ -56,6 +56,7 @@ class GangList(ListView):
 
 class GangDetail(DetailView):
   model = Gang
+
 
 class GangCreate(CreateView):
   model = Gang
