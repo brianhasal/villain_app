@@ -42,7 +42,7 @@ class Surveillance(models.Model):
 
   
 
-class Henchmen(models.Model):
+class Gang(models.Model):
   name = models.CharField(max_length=50)
   adjective = models.CharField(max_length=20)
   

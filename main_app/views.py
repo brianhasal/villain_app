@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
-from .models import Villain, Henchmen
+from .models import Villain, Gang
 from .forms import SurveillanceForm
 
 # Create your views here.
@@ -51,26 +51,26 @@ class VillainDelete(DeleteView):
   success_url = '/villains/'
 
 
-class HenchmenList(ListView):
-  model = Henchmen
+class GangList(ListView):
+  model = Gang
 
-class HenchmenDetail(DetailView):
-  model = Henchmen
+class GangDetail(DetailView):
+  model = Gang
 
-class HenchmenCreate(CreateView):
-  model = Henchmen
+class GangCreate(CreateView):
+  model = Gang
   fields = ['name', 'adjective']
-  success_url = '/henchmen/'
+  success_url = '/gangs/'
 
-class HenchmenUpdate(UpdateView):
-  model = Henchmen
+class GangUpdate(UpdateView):
+  model = Gang
   fields = ['name', 'adjective']
-  success_url = '/henchmen/'
+  success_url = '/gangs/'
 
 
-class HenchmenDelete(DeleteView):
-  model = Henchmen
-  success_url = '/henchmen/'
+class GangDelete(DeleteView):
+  model = Gang
+  success_url = '/gangs/'
 
 
 
